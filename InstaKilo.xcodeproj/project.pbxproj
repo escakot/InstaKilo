@@ -14,8 +14,9 @@
 		D143C0ED1F168C0A004E557E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D143C0EB1F168C0A004E557E /* LaunchScreen.storyboard */; };
 		D143C0F61F168D84004E557E /* InstaKiloViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C0F51F168D84004E557E /* InstaKiloViewController.m */; };
 		D143C0F91F1690E8004E557E /* IKCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C0F81F1690E8004E557E /* IKCollectionViewCell.m */; };
-		D143C0FC1F16A548004E557E /* Photos.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C0FB1F16A548004E557E /* Photos.m */; };
+		D143C0FC1F16A548004E557E /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C0FB1F16A548004E557E /* Photo.m */; };
 		D143C1281F16B400004E557E /* Images in Resources */ = {isa = PBXBuildFile; fileRef = D143C1271F16B400004E557E /* Images */; };
+		D143C12B1F16BC31004E557E /* PhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C12A1F16BC31004E557E /* PhotoManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +32,11 @@
 		D143C0F51F168D84004E557E /* InstaKiloViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstaKiloViewController.m; sourceTree = SOURCE_ROOT; };
 		D143C0F71F1690E8004E557E /* IKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKCollectionViewCell.h; sourceTree = "<group>"; };
 		D143C0F81F1690E8004E557E /* IKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKCollectionViewCell.m; sourceTree = "<group>"; };
-		D143C0FA1F16A548004E557E /* Photos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photos.h; sourceTree = "<group>"; };
-		D143C0FB1F16A548004E557E /* Photos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photos.m; sourceTree = "<group>"; };
+		D143C0FA1F16A548004E557E /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		D143C0FB1F16A548004E557E /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		D143C1271F16B400004E557E /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
+		D143C1291F16BC31004E557E /* PhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoManager.h; sourceTree = "<group>"; };
+		D143C12A1F16BC31004E557E /* PhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +73,10 @@
 				D143C0F51F168D84004E557E /* InstaKiloViewController.m */,
 				D143C0F71F1690E8004E557E /* IKCollectionViewCell.h */,
 				D143C0F81F1690E8004E557E /* IKCollectionViewCell.m */,
-				D143C0FA1F16A548004E557E /* Photos.h */,
-				D143C0FB1F16A548004E557E /* Photos.m */,
+				D143C0FA1F16A548004E557E /* Photo.h */,
+				D143C0FB1F16A548004E557E /* Photo.m */,
+				D143C1291F16BC31004E557E /* PhotoManager.h */,
+				D143C12A1F16BC31004E557E /* PhotoManager.m */,
 				D143C0E61F168C0A004E557E /* Main.storyboard */,
 				D143C0E91F168C0A004E557E /* Assets.xcassets */,
 				D143C1271F16B400004E557E /* Images */,
@@ -166,8 +171,9 @@
 			files = (
 				D143C0F91F1690E8004E557E /* IKCollectionViewCell.m in Sources */,
 				D143C0E21F168C0A004E557E /* AppDelegate.m in Sources */,
-				D143C0FC1F16A548004E557E /* Photos.m in Sources */,
+				D143C0FC1F16A548004E557E /* Photo.m in Sources */,
 				D143C0DF1F168C0A004E557E /* main.m in Sources */,
+				D143C12B1F16BC31004E557E /* PhotoManager.m in Sources */,
 				D143C0F61F168D84004E557E /* InstaKiloViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

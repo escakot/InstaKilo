@@ -1,5 +1,5 @@
 //
-//  Photos.h
+//  PhotoManager.h
 //  InstaKilo
 //
 //  Created by Errol Cheong on 2017-07-12.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface Photos : NSObject
+@interface PhotoManager : NSObject
 
 @property (assign, nonatomic) NSUInteger sections;
 @property (strong, nonatomic) NSArray<NSString*>* photoNames;
@@ -17,4 +17,7 @@
 
 -(void)getListOfPhotoNames;
 
+-(void)sortPhotosIntoSections;
+
 @end
+

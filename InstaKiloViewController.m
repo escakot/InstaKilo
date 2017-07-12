@@ -8,7 +8,7 @@
 
 #import "InstaKiloViewController.h"
 #import "IKCollectionViewCell.h"
-#import "Photos.h"
+#import "PhotoManager.h"
 
 @interface InstaKiloViewController () <UICollectionViewDataSource>
 
@@ -22,8 +22,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.photos = @[@"pet-corgi",@"pet-golden",@"pet-husky",@"pet-spitz",@"pet-maltese",@"other-home",@"meme-cry",@"meme-derpina",@"meme-derpinamad",@"meme-omg",@"meme-pleaseguy",@"meme-ruserious",];
-    Photos *photos = [[Photos alloc] init];
-    [photos getListOfPhotoNames];
+    PhotoManager *photoManager = [[PhotoManager alloc] init];
+    [photoManager getListOfPhotoNames];
+    [photoManager sortPhotosIntoSections];
     
 }
 
