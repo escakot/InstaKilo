@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		D143C0DF1F168C0A004E557E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C0DE1F168C0A004E557E /* main.m */; };
 		D143C0E21F168C0A004E557E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C0E11F168C0A004E557E /* AppDelegate.m */; };
-		D143C0E51F168C0A004E557E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C0E41F168C0A004E557E /* ViewController.m */; };
 		D143C0E81F168C0A004E557E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D143C0E61F168C0A004E557E /* Main.storyboard */; };
 		D143C0EA1F168C0A004E557E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D143C0E91F168C0A004E557E /* Assets.xcassets */; };
 		D143C0ED1F168C0A004E557E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D143C0EB1F168C0A004E557E /* LaunchScreen.storyboard */; };
+		D143C0F61F168D84004E557E /* InstaKiloViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C0F51F168D84004E557E /* InstaKiloViewController.m */; };
+		D143C0F91F1690E8004E557E /* IKCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C0F81F1690E8004E557E /* IKCollectionViewCell.m */; };
+		D143C0FC1F16A548004E557E /* Photos.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C0FB1F16A548004E557E /* Photos.m */; };
+		D143C1281F16B400004E557E /* Images in Resources */ = {isa = PBXBuildFile; fileRef = D143C1271F16B400004E557E /* Images */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +23,17 @@
 		D143C0DE1F168C0A004E557E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D143C0E01F168C0A004E557E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D143C0E11F168C0A004E557E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D143C0E31F168C0A004E557E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D143C0E41F168C0A004E557E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D143C0E71F168C0A004E557E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D143C0E91F168C0A004E557E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D143C0EC1F168C0A004E557E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D143C0EE1F168C0A004E557E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D143C0F41F168D84004E557E /* InstaKiloViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstaKiloViewController.h; sourceTree = SOURCE_ROOT; };
+		D143C0F51F168D84004E557E /* InstaKiloViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstaKiloViewController.m; sourceTree = SOURCE_ROOT; };
+		D143C0F71F1690E8004E557E /* IKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKCollectionViewCell.h; sourceTree = "<group>"; };
+		D143C0F81F1690E8004E557E /* IKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKCollectionViewCell.m; sourceTree = "<group>"; };
+		D143C0FA1F16A548004E557E /* Photos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photos.h; sourceTree = "<group>"; };
+		D143C0FB1F16A548004E557E /* Photos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photos.m; sourceTree = "<group>"; };
+		D143C1271F16B400004E557E /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +66,15 @@
 		D143C0DC1F168C0A004E557E /* InstaKilo */ = {
 			isa = PBXGroup;
 			children = (
-				D143C0E01F168C0A004E557E /* AppDelegate.h */,
-				D143C0E11F168C0A004E557E /* AppDelegate.m */,
-				D143C0E31F168C0A004E557E /* ViewController.h */,
-				D143C0E41F168C0A004E557E /* ViewController.m */,
+				D143C0F41F168D84004E557E /* InstaKiloViewController.h */,
+				D143C0F51F168D84004E557E /* InstaKiloViewController.m */,
+				D143C0F71F1690E8004E557E /* IKCollectionViewCell.h */,
+				D143C0F81F1690E8004E557E /* IKCollectionViewCell.m */,
+				D143C0FA1F16A548004E557E /* Photos.h */,
+				D143C0FB1F16A548004E557E /* Photos.m */,
 				D143C0E61F168C0A004E557E /* Main.storyboard */,
 				D143C0E91F168C0A004E557E /* Assets.xcassets */,
-				D143C0EB1F168C0A004E557E /* LaunchScreen.storyboard */,
-				D143C0EE1F168C0A004E557E /* Info.plist */,
+				D143C1271F16B400004E557E /* Images */,
 				D143C0DD1F168C0A004E557E /* Supporting Files */,
 			);
 			path = InstaKilo;
@@ -74,6 +83,10 @@
 		D143C0DD1F168C0A004E557E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D143C0E01F168C0A004E557E /* AppDelegate.h */,
+				D143C0E11F168C0A004E557E /* AppDelegate.m */,
+				D143C0EB1F168C0A004E557E /* LaunchScreen.storyboard */,
+				D143C0EE1F168C0A004E557E /* Info.plist */,
 				D143C0DE1F168C0A004E557E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -137,6 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D143C1281F16B400004E557E /* Images in Resources */,
 				D143C0ED1F168C0A004E557E /* LaunchScreen.storyboard in Resources */,
 				D143C0EA1F168C0A004E557E /* Assets.xcassets in Resources */,
 				D143C0E81F168C0A004E557E /* Main.storyboard in Resources */,
@@ -150,9 +164,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D143C0E51F168C0A004E557E /* ViewController.m in Sources */,
+				D143C0F91F1690E8004E557E /* IKCollectionViewCell.m in Sources */,
 				D143C0E21F168C0A004E557E /* AppDelegate.m in Sources */,
+				D143C0FC1F16A548004E557E /* Photos.m in Sources */,
 				D143C0DF1F168C0A004E557E /* main.m in Sources */,
+				D143C0F61F168D84004E557E /* InstaKiloViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +288,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = InstaKilo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.errolcheong.InstaKilo;
@@ -283,6 +300,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = InstaKilo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.errolcheong.InstaKilo;
@@ -309,6 +327,7 @@
 				D143C0F31F168C0A004E557E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
