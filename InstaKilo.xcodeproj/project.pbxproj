@@ -59,6 +59,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D102CBAD1F17F5960024EA52 /* SectionSort */ = {
+			isa = PBXGroup;
+			children = (
+				D143C1451F16F4B8004E557E /* NameSectionSort.h */,
+				D143C1461F16F4B8004E557E /* NameSectionSort.m */,
+				D143C1481F16F628004E557E /* CategorySectionSort.h */,
+				D143C1491F16F628004E557E /* CategorySectionSort.m */,
+			);
+			name = SectionSort;
+			sourceTree = "<group>";
+		};
 		D143C0D11F168C0A004E557E = {
 			isa = PBXGroup;
 			children = (
@@ -88,10 +99,7 @@
 				D143C0FB1F16A548004E557E /* Photo.m */,
 				D143C1291F16BC31004E557E /* PhotoManager.h */,
 				D143C12A1F16BC31004E557E /* PhotoManager.m */,
-				D143C1451F16F4B8004E557E /* NameSectionSort.h */,
-				D143C1461F16F4B8004E557E /* NameSectionSort.m */,
-				D143C1481F16F628004E557E /* CategorySectionSort.h */,
-				D143C1491F16F628004E557E /* CategorySectionSort.m */,
+				D102CBAD1F17F5960024EA52 /* SectionSort */,
 				D143C0E61F168C0A004E557E /* Main.storyboard */,
 				D143C0E91F168C0A004E557E /* Assets.xcassets */,
 				D143C1271F16B400004E557E /* Images */,

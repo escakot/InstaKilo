@@ -18,8 +18,10 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) CategorySectionSort *categorySort;
 @property (strong, nonatomic) NameSectionSort *nameSort;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *sortBarButton;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *defaultFlowLayout;
+
+@property (strong, nonatomic) UICollectionViewCell *dummyCell;
+@property (strong, nonatomic) NSIndexPath *selectedCellIndexPath;
 
 @end
 
@@ -47,6 +49,7 @@
     
     //Long Press Gesture
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(moveTargetItem:)];
+    longPressGesture.minimumPressDuration = 0.2;
     [self.collectionView addGestureRecognizer:longPressGesture];
     
     [self.collectionView reloadData];
@@ -66,18 +69,11 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (IBAction)changeSortMethod:(UIBarButtonItem *)sender {
-    if ([self.photoManager.delegate isMemberOfClass:[CategorySectionSort class]])
-    {
-//        [self.collectionView performBatchUpdates:^{
-//        } completion:^(BOOL finished) {
-//        }];
-        self.photoManager.delegate = self.nameSort;
-        self.sortBarButton.title = @"Sort: Alphabetical";
-        
-    } else {
+- (IBAction)sortSegmentedControl:(UISegmentedControl *)sender {
+    if ([sender selectedSegmentIndex] == 0){
         self.photoManager.delegate = self.categorySort;
-        self.sortBarButton.title = @"Sort: Category";
+    } else {
+        self.photoManager.delegate = self.nameSort;
     }
     [self.photoManager getSectionData];
     [self.collectionView reloadData];
@@ -96,6 +92,7 @@
     NSArray *allSectionKeys = [self.photoManager.photoList allKeys];
     NSArray *sortedSectionKeys = [allSectionKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     NSString *sectionKey = sortedSectionKeys[section];
+    
     return self.photoManager.photoList[sectionKey].count;
 }
 
@@ -130,13 +127,58 @@
 # pragma mark - Editting Collection View
 
 -(void)moveTargetItem:(UILongPressGestureRecognizer*)sender{
-    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
-    [self.collectionView beginInteractiveMovementForItemAtIndexPath:indexPath];
+    switch (sender.state) {
+        case UIGestureRecognizerStateBegan:
+        {
+            self.selectedCellIndexPath = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
+            UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:self.selectedCellIndexPath];
+            [self.collectionView beginInteractiveMovementForItemAtIndexPath:self.selectedCellIndexPath];
+            [UIView animateWithDuration:0.5 animations:^{
+                cell.alpha = 0.3;
+                cell.transform = CGAffineTransformScale(sender.view.transform, 1.2, 1.2);
+            }];
+            break;
+        }
+        case UIGestureRecognizerStateChanged:
+        {
+            if (self.selectedCellIndexPath != [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]] && [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]])
+            {
+                self.selectedCellIndexPath = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
+            }
+            [self.collectionView updateInteractiveMovementTargetPosition:[sender locationInView:sender.view]];
+            UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:self.selectedCellIndexPath];
+            cell.alpha = 0.3;
+            cell.transform = CGAffineTransformScale(sender.view.transform, 1.2, 1.2);
+            break;
+        }
+        case UIGestureRecognizerStateEnded:
+        {
+            [self.collectionView endInteractiveMovement];
+            UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:self.selectedCellIndexPath];
+            [UIView animateWithDuration:0.7 animations:^{
+                cell.transform = CGAffineTransformScale(sender.view.transform, 1, 1);
+                cell.alpha = 1;
+            }];
+            
+            
+            break;
+        }
+        default:
+        {
+            [self.collectionView cancelInteractiveMovement];
+            UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:self.selectedCellIndexPath];
+            cell.alpha = 1;
+            cell.transform = CGAffineTransformScale(sender.view.transform, 1, 1);
+            break;
+        }
+    }
 }
 
 
 -(void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
+
+    [self.photoManager movePhotoFromIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
     
 }
 
@@ -147,8 +189,6 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [collectionView beginInteractiveMovementForItemAtIndexPath:indexPath];
-    
 }
 
 @end

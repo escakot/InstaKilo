@@ -1,13 +1,14 @@
 //
-//  InstaKiloViewController.h
+//  Photo.m
 //  InstaKilo
 //
 //  Created by Errol Cheong on 2017-07-12.
 //  Copyright © 2017 Errol Cheong. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Photo.h"
 
-@interface InstaKiloViewController : UIViewController 
+@implementation Photo
+
 
 @end

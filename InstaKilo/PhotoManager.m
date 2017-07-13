@@ -44,7 +44,8 @@
 }
 
 
--(Photo*)getPhotoAtIndexPath:(NSIndexPath*)indexPath{
+-(Photo*)getPhotoAtIndexPath:(NSIndexPath*)indexPath
+{
     NSArray *allSectionKeys = [self.photoList allKeys];
     NSArray *sortedSectionKeys = [allSectionKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 //    NSLog(@"%@",sortedSectionKeys);
@@ -54,4 +55,21 @@
     return section[indexPath.row];
 }
 
+-(void)movePhotoFromIndexPath:(NSIndexPath*)sourcePath toIndexPath:(NSIndexPath*)destinationPath
+{
+    NSArray *allSectionKeys = [self.photoList allKeys];
+    NSArray *sortedSectionKeys = [allSectionKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+    //Get and Remove Source Item
+    NSString *sourceSectionKey = sortedSectionKeys[sourcePath.section];
+    NSMutableArray *sourceSection = self.photoList[sourceSectionKey];
+    Photo *sourcePhoto = sourceSection[sourcePath.row];
+    [sourceSection removeObjectAtIndex:sourcePath.row];
+    
+    //Destination Item
+    NSString *destinationSectionKey = sortedSectionKeys[destinationPath.section];
+    NSMutableArray *destinationSection = self.photoList[destinationSectionKey];
+    [destinationSection insertObject:sourcePhoto atIndex:destinationPath.row];
+    
+}
 @end

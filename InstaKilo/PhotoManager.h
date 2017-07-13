@@ -30,5 +30,8 @@
 
 -(Photo*)getPhotoAtIndexPath:(NSIndexPath*)indexPath;
 
+-(void)movePhotoFromIndexPath:(NSIndexPath*)sourcePath toIndexPath:(NSIndexPath*)destinationPath;
+
+
 @end
 

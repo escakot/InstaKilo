@@ -91,16 +91,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UxK-6S-BOj">
-                        <barButtonItem key="rightBarButtonItem" title="Sort: Category" id="PKc-Sa-vBY">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="EFX-i4-uzf">
+                            <rect key="frame" x="98" y="7" width="179" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Category"/>
+                                <segment title="Alphabetical"/>
+                            </segments>
                             <connections>
-                                <action selector="changeSortMethod:" destination="BYZ-38-t0r" id="GU2-3o-6Mb"/>
+                                <action selector="sortSegmentedControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="vbo-gr-aXe"/>
                             </connections>
-                        </barButtonItem>
+                        </segmentedControl>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="816-Qy-Lpp" id="c0Y-uh-upJ"/>
                         <outlet property="defaultFlowLayout" destination="OlI-BR-Vme" id="VsS-Vn-c3e"/>
-                        <outlet property="sortBarButton" destination="PKc-Sa-vBY" id="KhP-dp-4Fs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
