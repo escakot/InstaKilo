@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D102CBA21F17AB490024EA52 /* ProgCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D102CBA11F17AB490024EA52 /* ProgCollectionViewCell.m */; };
 		D143C0DF1F168C0A004E557E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C0DE1F168C0A004E557E /* main.m */; };
 		D143C0E21F168C0A004E557E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C0E11F168C0A004E557E /* AppDelegate.m */; };
 		D143C0E81F168C0A004E557E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D143C0E61F168C0A004E557E /* Main.storyboard */; };
@@ -17,9 +18,13 @@
 		D143C0FC1F16A548004E557E /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C0FB1F16A548004E557E /* Photo.m */; };
 		D143C1281F16B400004E557E /* Images in Resources */ = {isa = PBXBuildFile; fileRef = D143C1271F16B400004E557E /* Images */; };
 		D143C12B1F16BC31004E557E /* PhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C12A1F16BC31004E557E /* PhotoManager.m */; };
+		D143C1471F16F4B8004E557E /* NameSectionSort.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C1461F16F4B8004E557E /* NameSectionSort.m */; };
+		D143C14A1F16F628004E557E /* CategorySectionSort.m in Sources */ = {isa = PBXBuildFile; fileRef = D143C1491F16F628004E557E /* CategorySectionSort.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D102CBA01F17AB490024EA52 /* ProgCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgCollectionViewCell.h; sourceTree = "<group>"; };
+		D102CBA11F17AB490024EA52 /* ProgCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgCollectionViewCell.m; sourceTree = "<group>"; };
 		D143C0DA1F168C0A004E557E /* InstaKilo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaKilo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D143C0DE1F168C0A004E557E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D143C0E01F168C0A004E557E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -37,6 +42,10 @@
 		D143C1271F16B400004E557E /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		D143C1291F16BC31004E557E /* PhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoManager.h; sourceTree = "<group>"; };
 		D143C12A1F16BC31004E557E /* PhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoManager.m; sourceTree = "<group>"; };
+		D143C1451F16F4B8004E557E /* NameSectionSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameSectionSort.h; sourceTree = "<group>"; };
+		D143C1461F16F4B8004E557E /* NameSectionSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameSectionSort.m; sourceTree = "<group>"; };
+		D143C1481F16F628004E557E /* CategorySectionSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategorySectionSort.h; sourceTree = "<group>"; };
+		D143C1491F16F628004E557E /* CategorySectionSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategorySectionSort.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +80,18 @@
 			children = (
 				D143C0F41F168D84004E557E /* InstaKiloViewController.h */,
 				D143C0F51F168D84004E557E /* InstaKiloViewController.m */,
+				D102CBA01F17AB490024EA52 /* ProgCollectionViewCell.h */,
+				D102CBA11F17AB490024EA52 /* ProgCollectionViewCell.m */,
 				D143C0F71F1690E8004E557E /* IKCollectionViewCell.h */,
 				D143C0F81F1690E8004E557E /* IKCollectionViewCell.m */,
 				D143C0FA1F16A548004E557E /* Photo.h */,
 				D143C0FB1F16A548004E557E /* Photo.m */,
 				D143C1291F16BC31004E557E /* PhotoManager.h */,
 				D143C12A1F16BC31004E557E /* PhotoManager.m */,
+				D143C1451F16F4B8004E557E /* NameSectionSort.h */,
+				D143C1461F16F4B8004E557E /* NameSectionSort.m */,
+				D143C1481F16F628004E557E /* CategorySectionSort.h */,
+				D143C1491F16F628004E557E /* CategorySectionSort.m */,
 				D143C0E61F168C0A004E557E /* Main.storyboard */,
 				D143C0E91F168C0A004E557E /* Assets.xcassets */,
 				D143C1271F16B400004E557E /* Images */,
@@ -172,6 +187,9 @@
 				D143C0F91F1690E8004E557E /* IKCollectionViewCell.m in Sources */,
 				D143C0E21F168C0A004E557E /* AppDelegate.m in Sources */,
 				D143C0FC1F16A548004E557E /* Photo.m in Sources */,
+				D143C14A1F16F628004E557E /* CategorySectionSort.m in Sources */,
+				D102CBA21F17AB490024EA52 /* ProgCollectionViewCell.m in Sources */,
+				D143C1471F16F4B8004E557E /* NameSectionSort.m in Sources */,
 				D143C0DF1F168C0A004E557E /* main.m in Sources */,
 				D143C12B1F16BC31004E557E /* PhotoManager.m in Sources */,
 				D143C0F61F168D84004E557E /* InstaKiloViewController.m in Sources */,

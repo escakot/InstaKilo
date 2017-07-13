@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Photo;
 @interface IKCollectionViewCell : UICollectionViewCell
 
-@property (strong, nonatomic) UIImage* image;
+@property (strong, nonatomic) Photo* photo;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 - (void)updateDisplay;

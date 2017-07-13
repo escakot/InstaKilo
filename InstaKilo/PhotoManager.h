@@ -9,15 +9,26 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class Photo;
+
+@protocol PhotoManagerDelegate <NSObject>
+
+-(NSMutableDictionary*)sortPhotosIntoSections:(NSArray*)photoNames;
+
+@end
+
+
 @interface PhotoManager : NSObject
 
-@property (assign, nonatomic) NSUInteger sections;
 @property (strong, nonatomic) NSArray<NSString*>* photoNames;
-@property (strong, nonatomic) NSMutableArray<NSMutableArray<UIImage*>*>* imageList;
+@property (strong, nonatomic) NSMutableDictionary<NSString*,NSMutableArray*>* photoList;
+@property (weak, nonatomic) id<PhotoManagerDelegate> delegate;
 
--(void)getListOfPhotoNames;
+-(NSArray*)getListOfPhotoNames;
 
--(void)sortPhotosIntoSections;
+-(void)getSectionData;
+
+-(Photo*)getPhotoAtIndexPath:(NSIndexPath*)indexPath;
 
 @end
 

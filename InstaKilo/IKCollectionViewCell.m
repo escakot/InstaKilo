@@ -7,11 +7,12 @@
 //
 
 #import "IKCollectionViewCell.h"
+#import "Photo.h"
 
 @implementation IKCollectionViewCell
 
 - (void)updateDisplay{
-    self.imageView.image = self.image;
+    self.imageView.image = self.photo.image;
     
 }
 
