@@ -32,6 +32,7 @@
 
 -(void)movePhotoFromIndexPath:(NSIndexPath*)sourcePath toIndexPath:(NSIndexPath*)destinationPath;
 
+-(void)deletePhotoFromIndexPath:(NSIndexPath*)indexPath;
 
 @end
 

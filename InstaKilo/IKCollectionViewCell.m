@@ -9,6 +9,13 @@
 #import "IKCollectionViewCell.h"
 #import "Photo.h"
 
+
+@interface IKCollectionViewCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@end
+
 @implementation IKCollectionViewCell
 
 - (void)updateDisplay{

@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="816-Qy-Lpp">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="1" y="0.0" width="375" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OlI-BR-Vme">
                                     <size key="itemSize" width="80" height="80"/>
@@ -55,6 +55,36 @@
                                             <outlet property="imageView" destination="p1l-qQ-oup" id="KOn-6F-I4h"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="customCell" id="5K8-Dx-7xV" customClass="CustomCollectionViewCell">
+                                        <rect key="frame" x="98.5" y="60" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dea-IB-Gqj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rdp-EK-GfI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="rdp-EK-GfI" secondAttribute="bottom" id="2tj-Yd-355"/>
+                                            <constraint firstItem="dea-IB-Gqj" firstAttribute="top" secondItem="5K8-Dx-7xV" secondAttribute="top" id="3sW-hT-5P6"/>
+                                            <constraint firstItem="rdp-EK-GfI" firstAttribute="leading" secondItem="5K8-Dx-7xV" secondAttribute="leading" id="CDv-si-tf8"/>
+                                            <constraint firstAttribute="trailing" secondItem="dea-IB-Gqj" secondAttribute="trailing" id="CXq-8H-tUC"/>
+                                            <constraint firstAttribute="trailing" secondItem="rdp-EK-GfI" secondAttribute="trailing" id="SoO-oV-J5p"/>
+                                            <constraint firstItem="rdp-EK-GfI" firstAttribute="top" secondItem="5K8-Dx-7xV" secondAttribute="top" id="bgP-57-E1a"/>
+                                            <constraint firstAttribute="bottom" secondItem="dea-IB-Gqj" secondAttribute="bottom" id="dGb-Qa-HlY"/>
+                                            <constraint firstItem="dea-IB-Gqj" firstAttribute="leading" secondItem="5K8-Dx-7xV" secondAttribute="leading" id="jXL-F8-5nE"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="innerImageView" destination="rdp-EK-GfI" id="xMx-N8-1Db"/>
+                                            <outlet property="outerImageView" destination="dea-IB-Gqj" id="bCW-Ji-6UH"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IKHeader" id="pMw-vw-zB1">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -81,13 +111,27 @@
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="SmS-As-2Bl"/>
                                 </connections>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="v37-4D-ban">
+                                <rect key="frame" x="127" y="619" width="121" height="29"/>
+                                <segments>
+                                    <segment title="Default"/>
+                                    <segment title="Custom"/>
+                                </segments>
+                                <connections>
+                                    <action selector="switchFlowLayout:" destination="BYZ-38-t0r" eventType="valueChanged" id="VcD-zr-9hK"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="v37-4D-ban" secondAttribute="bottom" constant="20" id="3cC-KE-7LH"/>
+                            <constraint firstItem="v37-4D-ban" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="111" id="OU2-dG-2so"/>
                             <constraint firstItem="816-Qy-Lpp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Qlt-iP-Mdn"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="816-Qy-Lpp" secondAttribute="bottom" id="R9m-H4-oYG"/>
-                            <constraint firstAttribute="trailing" secondItem="816-Qy-Lpp" secondAttribute="trailing" id="po8-7D-fxH"/>
-                            <constraint firstItem="816-Qy-Lpp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tjU-0d-CMg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="816-Qy-Lpp" secondAttribute="bottom" constant="69" id="R9m-H4-oYG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v37-4D-ban" secondAttribute="trailing" constant="111" id="V69-tm-kf3"/>
+                            <constraint firstItem="v37-4D-ban" firstAttribute="top" secondItem="816-Qy-Lpp" secondAttribute="bottom" constant="21" id="gFh-da-Eh8"/>
+                            <constraint firstAttribute="trailing" secondItem="816-Qy-Lpp" secondAttribute="trailing" constant="-1" id="po8-7D-fxH"/>
+                            <constraint firstItem="816-Qy-Lpp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="1" id="tjU-0d-CMg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UxK-6S-BOj">

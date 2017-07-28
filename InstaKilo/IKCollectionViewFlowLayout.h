@@ -1,13 +1,13 @@
 //
-//  ProgCollectionViewCell.m
+//  IKCollectionViewFlowLayout.h
 //  InstaKilo
 //
 //  Created by Errol Cheong on 2017-07-13.
 //  Copyright © 2017 Errol Cheong. All rights reserved.
 //
 
-#import "ProgCollectionViewCell.h"
+#import <UIKit/UIKit.h>
 
-@implementation ProgCollectionViewCell
+@interface IKCollectionViewFlowLayout : UICollectionViewFlowLayout
 
 @end

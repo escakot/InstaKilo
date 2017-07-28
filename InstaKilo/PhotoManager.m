@@ -70,6 +70,15 @@
     NSString *destinationSectionKey = sortedSectionKeys[destinationPath.section];
     NSMutableArray *destinationSection = self.photoList[destinationSectionKey];
     [destinationSection insertObject:sourcePhoto atIndex:destinationPath.row];
-    
+    NSLog(@"Section: %@, Item: %li to Section: %@, Item: %li", sourceSectionKey, sourcePath.row, destinationSectionKey, destinationPath.row);
+}
+
+-(void)deletePhotoFromIndexPath:(NSIndexPath*)indexPath{
+    NSArray *allSectionKeys = [self.photoList allKeys];
+    NSArray *sortedSectionKeys = [allSectionKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    NSString *targetSectionKey = sortedSectionKeys[indexPath.section];
+    NSMutableArray *targetSection = self.photoList[targetSectionKey];
+    [targetSection removeObjectAtIndex:indexPath.row];
+    NSLog(@"Section: %@, Row: %li", targetSectionKey, indexPath.row);
 }
 @end

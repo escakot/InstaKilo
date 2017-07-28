@@ -8,9 +8,11 @@
 
 #import "InstaKiloViewController.h"
 #import "IKCollectionViewCell.h"
+#import "CustomCollectionViewCell.h"
 #import "PhotoManager.h"
 #import "CategorySectionSort.h"
 #import "NameSectionSort.h"
+#import "IKCollectionViewFlowLayout.h"
 
 @interface InstaKiloViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -18,9 +20,11 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) CategorySectionSort *categorySort;
 @property (strong, nonatomic) NameSectionSort *nameSort;
-@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *defaultFlowLayout;
+@property (strong, nonatomic) IBOutlet UICollectionViewFlowLayout *defaultFlowLayout;
+@property (strong, nonatomic) UICollectionViewFlowLayout *customFlowLayout;
 
-@property (strong, nonatomic) UICollectionViewCell *dummyCell;
+@property (strong, nonatomic) CustomCollectionViewCell *customCell;
+@property (strong, nonatomic) IKCollectionViewCell *defaultCell;
 @property (strong, nonatomic) NSIndexPath *selectedCellIndexPath;
 
 @end
@@ -40,6 +44,13 @@
     self.defaultFlowLayout.minimumLineSpacing = 20;
     self.defaultFlowLayout.sectionInset = UIEdgeInsetsMake(20, 30, 20, 30);
     
+//    self.customFlowLayout = [[IKCollectionViewFlowLayout alloc] init];
+    self.customFlowLayout = [[IKCollectionViewFlowLayout alloc] init];
+    self.customFlowLayout.itemSize = CGSizeMake(75, 100);
+    self.customFlowLayout.minimumInteritemSpacing = 15;
+    self.customFlowLayout.minimumLineSpacing = 20;
+    self.customFlowLayout.sectionInset = UIEdgeInsetsMake(20, 30, 20, 30);
+    
     //Sorting Objects
     self.photoManager = [[PhotoManager alloc] init];
     self.categorySort = [[CategorySectionSort alloc] init];
@@ -53,6 +64,11 @@
     [self.collectionView addGestureRecognizer:longPressGesture];
     
     [self.collectionView reloadData];
+    
+    //Tap Gesture
+    UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapDelete:)];
+    doubleTapGesture.numberOfTapsRequired = 2;
+    [self.collectionView addGestureRecognizer:doubleTapGesture];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,6 +95,16 @@
     [self.collectionView reloadData];
 }
 
+- (IBAction)switchFlowLayout:(UISegmentedControl *)sender{
+    if (self.collectionView.collectionViewLayout == self.defaultFlowLayout){
+        self.collectionView.collectionViewLayout = self.customFlowLayout;
+//        self.collectionView.collectionViewLayout = self.defaultFlowLayout;
+    } else {
+        self.collectionView.collectionViewLayout = self.defaultFlowLayout;
+    }
+    
+    [self.collectionView reloadData];
+}
 
 #pragma mark - UICollectionView Data Source
 
@@ -98,11 +124,18 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    IKCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ikCell" forIndexPath:indexPath];
-    cell.photo = [self.photoManager getPhotoAtIndexPath:indexPath];
-    [cell updateDisplay];
+    if (self.collectionView.collectionViewLayout == self.defaultFlowLayout){
+        self.defaultCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ikCell" forIndexPath:indexPath];
+        self.defaultCell.photo = [self.photoManager getPhotoAtIndexPath:indexPath];
+        [self.defaultCell updateDisplay];
+        return self.defaultCell;
+    } else {
+        self.customCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"customCell" forIndexPath:indexPath];
+        self.customCell.photo = [self.photoManager getPhotoAtIndexPath:indexPath];
+        [self.customCell updateDisplay];
+        return self.customCell;
+    }
 
-    return cell;
 }
 
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -126,7 +159,32 @@
 
 # pragma mark - Editting Collection View
 
--(void)moveTargetItem:(UILongPressGestureRecognizer*)sender{
+-(void)doubleTapDelete:(UITapGestureRecognizer*)sender
+{
+    NSLog(@"Double Tap");
+    if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        [self.collectionView performBatchUpdates:^{
+            
+//            NSArray *selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
+            NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
+            
+            if (indexPath){
+//                 Delete the items from the data source.
+                [self.photoManager deletePhotoFromIndexPath:indexPath];
+                
+                // Now delete the items from the collection view.
+                [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+                
+            }
+            
+        } completion:nil];
+    }
+}
+
+-(void)moveTargetItem:(UILongPressGestureRecognizer*)sender
+{
+    NSLog(@"Long Press");
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:
         {
@@ -177,9 +235,7 @@
 
 -(void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-
     [self.photoManager movePhotoFromIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
-    
 }
 
 -(BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
@@ -187,8 +243,6 @@
     return YES;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-}
+
 
 @end
